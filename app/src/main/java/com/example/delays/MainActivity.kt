@@ -2,6 +2,7 @@ package com.example.delays
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.design.snackbar
@@ -20,14 +21,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnWait.setOnClickListener {
-            val start = System.currentTimeMillis()
+//            val start = System.currentTimeMillis()
+//
+////            toast("DELAY started")
+////            Not working but why ?
+//
+//            while ( System.currentTimeMillis() < start + 5000) {}
+//
+//            toast("DELAY ended")
 
-//            toast("DELAY started")
-//            Not working but why ?
-
-            while ( System.currentTimeMillis() < start + 5000) {}
-
-            toast("DELAY ended")
+            toast("DELAY started")
+            
+            Handler().postDelayed(Runnable{
+                toast("DELAY ended")
+            }, 5000)
 
         }
 
